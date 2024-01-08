@@ -106,7 +106,7 @@ export default function Login({ usuario }) {
                 <div className="image"></div>
 
                 <div className="content">
-                    <h1 className="title">Seridó Tennis</h1>
+                    <h1 className="title">Elumini IT</h1>
                     <h2 className="title">Bem-vindo!</h2>
                     <p style={{ textAlign: "center" }}>Faça login para acessar sua conta</p>
 
@@ -134,7 +134,7 @@ export default function Login({ usuario }) {
                         </Form.Field>
 
                         <Form.Field style={{ textAlign: "right" }}>
-                            <a href="/recover-password" className="linkComum">
+                            <a href="#" className="linkComum">
                                 Esqueceu sua senha?
                             </a>
                         </Form.Field>

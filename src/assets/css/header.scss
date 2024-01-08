@@ -141,7 +141,9 @@ div#Wrapper.Admin {
             }
 
             .User {
-                display: none;
+                strong{
+                    display: none;
+                }
             }
         }
     }

@@ -114,7 +114,7 @@ export default function Endereco() {
         <>
             {pronto !== null ? (
                 <>
-                    <div id="Wrapper" className="Perfil Index">
+                    <div id="Wrapper" className="Perfil Index Mapa">
                         <Menu pagina={pagina} />
 
                         <div className="content">

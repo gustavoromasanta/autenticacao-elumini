@@ -123,7 +123,7 @@ export default function Trabalho() {
         <>
             {pronto !== null ? (
                 <>
-                    <div id="Wrapper" className="Perfil Index">
+                    <div id="Wrapper" className="Perfil Index Mapa">
                         <Menu pagina={pagina} />
 
                         <div className="content">

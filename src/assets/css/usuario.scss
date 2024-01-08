@@ -83,12 +83,34 @@ div.Perfil {
 
 @media screen and (max-width: 1024px) {
     div.Perfil {
+        &.Mapa{
+            .content{
+                .container{
+                    .wrap{
+                        .left{
+                            &>div{
+                                width: 100%!important;
+                                height: 300px!important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
         .content {
             .container {
                 .wrap {
                     padding: 0px;
                     padding-top: 20px;
-                    flex-direction: column;
+                    flex-direction: column-reverse;
+
+                    .left{
+                        width: 100%;
+                        padding-left: 0;
+                        margin-top: 20px;
+                        min-width: 100%;
+                        max-width: 100%;
+                    }
 
                     .right {
                         width: 100%;
