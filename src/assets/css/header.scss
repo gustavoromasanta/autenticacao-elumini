@@ -1,0 +1,148 @@
+div.Header {
+    border-bottom: 2px solid #e1e1e1;
+    display: flex;
+    height: 75px;
+    justify-content: space-between;
+    padding-right: 50px;
+    padding-left: 50px;
+
+    button.humburguer {
+        display: none;
+    }
+
+    h1.title {
+        color: #462654;
+        margin-bottom: 0;
+        font-weight: 500;
+        font-size: 24px;
+        display: flex;
+        align-content: center;
+        align-items: center;
+    }
+
+    .wrap {
+        display: flex;
+
+        .alert {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            position: relative;
+
+            a {
+                display: block;
+                position: relative;
+
+                i {
+                    color: #142850;
+                    font-size: 28px;
+
+                    &:before {
+                        position: relative;
+                        top: 4px;
+                    }
+                }
+
+                span {
+                    width: 22px;
+                    height: 22px;
+                    display: flex;
+                    border-radius: 50%;
+                    background-color: #a84e58;
+                    color: #fff;
+                    font-size: 11px;
+                    position: absolute;
+                    top: -10px;
+                    right: -10px;
+                    text-align: center;
+                    align-content: center;
+                    align-items: center;
+                    justify-content: center;
+                    letter-spacing: normal;
+                    line-height: inherit;
+                }
+            }
+        }
+
+        .User {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .avatar {
+                width: 37px;
+                height: 37px;
+                background-color: #8e8e8e;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-right: 10px;
+
+                font-size: 18px;
+                font-weight: 500;
+                letter-spacing: normal;
+                line-height: normal;
+                color: #ffffff;
+            }
+
+            strong {
+                font-weight: 500;
+                font-size: 16px;
+                color: #615e63;
+            }
+        }
+    }
+}
+
+div#Wrapper.Admin {
+    div.Header {
+        .wrap {
+            .alert {
+                display: none;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    div.Header {
+        padding-left: 20px;
+        padding-right: 20px;
+
+        button.humburguer {
+            display: block;
+            background-color: transparent;
+            border: 0;
+            padding: 0;
+            margin: 0;
+            cursor: pointer;
+
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+
+            i {
+                margin: 0;
+                font-size: 24px;
+                color: #142850;
+            }
+        }
+
+        h1.title {
+            margin-top: 0;
+            height: 75px;
+        }
+
+        .wrap {
+            .alert {
+                position: static;
+            }
+
+            .User {
+                display: none;
+            }
+        }
+    }
+}

@@ -1,0 +1,120 @@
+div.Perfil {
+    &.Cartao{
+        .content{
+            .container{
+                .wrap{
+                    .left{
+                        .rccs{
+                            width: 100%!important;
+
+                            .rccs__card {
+                                width: 100%!important;
+                                height: 250px!important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .content {
+        .container {
+            .wrap {
+                display: flex;
+                justify-content: space-between;
+                flex-direction: row-reverse;
+                padding: 50px;
+
+                &:before {
+                    content: "";
+                    display: block;
+                    width: 25%;
+                    max-width: 210px;
+                }
+
+                .left {
+                    width: 25%;
+                    min-width: 500px;
+                    max-width: 500px;
+                    padding-left: 40px;
+
+                    img {
+                        display: block;
+                        width: 100%;
+                        height: auto;
+                        max-width: 300px;
+                        border-radius: 50%;
+                        border: 1px solid rgba(34,36,38,.15);
+                        padding: 5px;
+                    }
+                }
+
+                .right {
+                    width: 50%;
+                    max-width: 765px;
+                    padding-left: 40px;
+
+                    form {
+                        .field {
+                            label {
+                                font-size: 14px;
+                                font-weight: 400;
+                                color: #454545;
+                                margin-bottom: 10px;
+                            }
+                        }
+
+                        button.atualizar {
+                            max-width: 321px;
+                            font-size: 18px;
+                        }
+
+                        a.voltar {
+                            display: block;
+                            clear: both;
+                            margin-top: 10px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    div.Perfil {
+        .content {
+            .container {
+                .wrap {
+                    padding: 0px;
+                    padding-top: 20px;
+                    flex-direction: column;
+
+                    .right {
+                        width: 100%;
+                        max-width: 100%;
+                        padding-left: 0;
+
+                        form {
+                            width: 100%;
+
+                            button {
+                                &.button {
+                                    &.padrao {
+                                        width: 100%;
+                                        max-width: 100%;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    &:before,
+                    &:after {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}
