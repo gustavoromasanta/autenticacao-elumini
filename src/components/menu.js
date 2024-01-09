@@ -51,7 +51,7 @@ export default function Menu({ pagina }) {
                 return false;
             }
         });
-    });
+    },[]);
 
     return (
         <div className="Menu close">
