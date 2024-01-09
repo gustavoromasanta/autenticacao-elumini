@@ -1,22 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
+import { Link } from 'react-router-dom';
 
 import $ from "jquery";
 
 export default function Header({ pagina }) {
-    const [user, setUser] = useState();
 
     useEffect(() => {
         const loggedInUser = localStorage.getItem("user");
         if (loggedInUser) {
             const foundUser = JSON.parse(loggedInUser);
-            setUser(foundUser);
 
             $("body div#Wrapper").addClass("logado");
 
             const firstName = foundUser.firstName;
             const lastName = foundUser.lastName;
-            const nome = firstName + ' ' + lastName;
-            const partesNome = nome.split(" ");
             const firstNamecharAt = firstName.charAt(0);
             const lastNamecharAt = lastName.charAt(0);
 
@@ -37,10 +34,10 @@ export default function Header({ pagina }) {
 
             <div className="wrap">
                 <div className="alert">
-                    <a href="#">
+                    <Link>
                         <i className="icon alarm"></i>
                         <span>1</span>
-                    </a>
+                    </Link>
                 </div>
 
                 <div className="User">

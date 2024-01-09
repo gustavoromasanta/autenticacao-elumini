@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Button, Form, Icon } from "semantic-ui-react";
+import { Button, Form} from "semantic-ui-react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import $ from "jquery";
@@ -9,9 +9,6 @@ import axios from "axios";
 export default function Login({ usuario }) {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-
-    const [token, setToken] = useState();
-    const [user, setUser] = useState();
 
     /*
     "id": 15,
@@ -60,11 +57,10 @@ export default function Login({ usuario }) {
             }
         })
             .then(function (response) {
-                setToken(response.data.token);
                 localStorage.setItem("token", JSON.stringify(response.data.token));
                 localStorage.setItem("user", JSON.stringify(response.data));
 
-                console.log("response >> ", response);
+                //console.log("response >> ", response);
 
                 toast.success('Olá, ' + response.data.firstName + ', aguarde...', {
                     position: toast.POSITION.TOP_RIGHT
@@ -110,7 +106,6 @@ export default function Login({ usuario }) {
                     <h2 className="title">Bem-vindo!</h2>
                     <p style={{ textAlign: "center" }}>Faça login para acessar sua conta</p>
 
-                    {user && <div>{user.pessoa.nome} logado!</div>}
                     <Form onSubmit={handleSubmit}>
                         <Form.Field>
                             <input
@@ -131,12 +126,6 @@ export default function Login({ usuario }) {
                                 onChange={({ target }) => setPassword(target.value)}
                             />
                             <i className="icon eye"></i>
-                        </Form.Field>
-
-                        <Form.Field style={{ textAlign: "right" }}>
-                            <a href="#" className="linkComum">
-                                Esqueceu sua senha?
-                            </a>
                         </Form.Field>
 
                         <Button type="submit" style={{ marginTop: "40px" }} className="padrao azul">

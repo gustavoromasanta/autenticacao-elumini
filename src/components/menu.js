@@ -1,18 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
+import { Link } from 'react-router-dom';
 
 import $ from "jquery";
 
 export default function Menu({ pagina }) {
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
-    const [token, setToken] = useState();
-    const [user, setUser] = useState();
 
     const handleLogout = () => {
         $(".aguarde").addClass("active");
 
-        setUser({});
-        setToken({});
         localStorage.clear();
 
         window.location.href = "";
@@ -57,45 +52,45 @@ export default function Menu({ pagina }) {
         <div className="Menu close">
             <ul rel={pagina}>
                 <li className="inicio">
-                    <a href="/" title="Início">
+                    <Link to={{pathname: "/"}} title="Início">
                         <i className="icon home"></i>
                         <span>Início</span>
-                    </a>
+                    </Link>
                 </li>
 
                 <li className="perfil">
-                    <a href="/" title="Perfil">
+                    <Link to={{pathname: "/"}} title="Perfil">
                         <i className="icon user"></i>
                         <span>Perfil</span>
-                    </a>
+                    </Link>
                 </li>
 
                 <li className="endereco">
-                    <a href="/endereco" title="Endereço">
+                    <Link to={{pathname: "/endereco"}} title="Endereço">
                         <i className="icon map marker"></i>
                         <span>Endereço</span>
-                    </a>
+                    </Link>
                 </li>
 
                 <li className="trabalho">
-                    <a href="/trabalho" title="Trabalho">
+                    <Link to={{pathname: "/trabalho"}} title="Trabalho">
                         <i className="icon building outline"></i>
                         <span>Trabalho</span>
-                    </a>
+                    </Link>
                 </li>
 
                 <li className="cartao">
-                    <a href="/cartao" title="Cartão">
+                    <Link to={{pathname: "/cartao"}} title="Cartão">
                         <i className="icon credit card"></i>
                         <span>Cartão</span>
-                    </a>
+                    </Link>
                 </li>
 
                 <li className="sair">
-                    <a onClick={handleLogout} href="#" title="Sair">
+                    <Link onClick={handleLogout} href="#" title="Sair">
                         <i className="icon log out"></i>
                         <span>Sair</span>
-                    </a>
+                    </Link>
                 </li>
             </ul>
 

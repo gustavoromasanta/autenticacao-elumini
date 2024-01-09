@@ -3,62 +3,37 @@ import React, { useEffect, useState } from "react";
 import Header from "../components/header";
 import Menu from "../components/menu";
 
-import { Button, Form } from "semantic-ui-react";
+import { Form } from "semantic-ui-react";
 import { ToastContainer, toast } from "react-toastify";
 import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
 
 import $ from "jquery";
 import axios from "axios";
 
+const containerStyle = {
+    width: '400px',
+    height: '400px'
+};
+
 export default function Trabalho() {
     const pagina = "Trabalho";
 
     const [pronto, setPronto] = useState(null);
 
-    const [token, setToken] = useState();
-    const [user, setUser] = useState();
-
     const [txtRua, setTxtRua] = useState("");
     const [txtCidade, setTxtCidade] = useState("");
     const [txtCep, setTxtCep] = useState("");
     const [txtUf, setTxtUf] = useState("");
-    const [txtLat, setTxtLat] = useState("");
-    const [txtLng, setTxtLng] = useState("");
 
     const [txtNome, setTxtNome] = useState("");
     const [txtDepartamento, setTxtDepartamento] = useState("");
     const [txtCargo, setTxtCargo] = useState("");
-
-
-    const containerStyle = {
-        width: '400px',
-        height: '400px'
-    };
-
-    const center = {
-        lat: 0,
-        lng: 0
-    };
 
     const { isLoaded } = useJsApiLoader({
         id: 'google-map-script',
         googleMapsApiKey: "AIzaSyBfIViDYjdx3tdEogKrH4GPLoF34TdokEQ"
     })
     
-    const [map, setMap] = React.useState(null)
-    
-    const onLoad = React.useCallback(function callback(map) {
-        const bounds = new window.google.maps.LatLngBounds(center);
-        map.fitBounds(bounds);
-    
-        setMap(map)
-    }, [])
-    
-    const onUnmount = React.useCallback(function callback(map) {
-        setMap(null)
-    }, [])
-    
-
     useEffect(() => {
         const loggedInUser = localStorage.getItem("user");
         if (loggedInUser) {
@@ -79,8 +54,6 @@ export default function Trabalho() {
                     setTxtCidade(response.data.company.address.city);
                     setTxtCep(response.data.company.address.postalCode);
                     setTxtUf(response.data.company.address.state);
-                    setTxtLat(response.data.company.address.coordinates.lat);
-                    setTxtLng(response.data.company.address.coordinates.lng);
 
                     setTxtDepartamento(response.data.company.department);
                     setTxtNome(response.data.company.name);
@@ -104,9 +77,7 @@ export default function Trabalho() {
                         position: toast.POSITION.TOP_RIGHT
                     });
 
-                    if(error.message == 'Request failed with status code 401'){
-                        setUser({});
-                        setToken({});
+                    if(error.message === 'Request failed with status code 401'){
                         localStorage.clear();
 
                         window.location.href = "";

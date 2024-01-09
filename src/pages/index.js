@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import Header from "../components/header";
 import Menu from "../components/menu";
 
-import { Button, Form } from "semantic-ui-react";
+import { Form } from "semantic-ui-react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -13,9 +13,6 @@ import axios from "axios";
 
 export default function Perfil() {
     const pagina = "Perfil";
-
-    const [token, setToken] = useState();
-    const [user, setUser] = useState();
 
     const [txtNome, setTxtNome] = useState("");
     const [txtSobrenome, setTxtSobrenome] = useState("");
@@ -57,9 +54,7 @@ export default function Perfil() {
                         position: toast.POSITION.TOP_RIGHT
                     });
 
-                    if(error.message == 'Request failed with status code 401'){
-                        setUser({});
-                        setToken({});
+                    if(error.message === 'Request failed with status code 401'){
                         localStorage.clear();
 
                         window.location.href = "";
@@ -82,7 +77,7 @@ export default function Perfil() {
                 <div className="container">
                     <div className="wrap">
                         <div className="left">                            
-                            <img src={txtAvatar} />
+                            <img alt="avatar" src={txtAvatar} />
                         </div>
 
                         <div className="right">

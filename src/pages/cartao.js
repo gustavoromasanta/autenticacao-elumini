@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import Header from "../components/header";
 import Menu from "../components/menu";
 
-import { Button, Form } from "semantic-ui-react";
+import { Form } from "semantic-ui-react";
 import { ToastContainer, toast } from "react-toastify";
 import Cards from 'react-credit-cards-2';
 
@@ -13,11 +13,6 @@ import axios from "axios";
 export default function Cartao() {
     const pagina = "Cartão";
 
-    const [token, setToken] = useState();
-    const [user, setUser] = useState();
-
-    const [txtNome, setTxtNome] = useState("");
-    const [txtSobrenome, setTxtSobrenome] = useState("");
     const [txtNomeCompleto, setTxtNomeCompleto] = useState("");
     const [txtBankNumber, setBankNumber] = useState("");
     const [txtBankExpire, setBankExpire] = useState("");
@@ -38,8 +33,6 @@ export default function Cartao() {
                 .then(function (response) {
                     //console.log('Response >> ', response);
 
-                    setTxtNome(response.data.firstName);
-                    setTxtSobrenome(response.data.lastName);
                     setTxtNomeCompleto(response.data.firstName +' '+ response.data.lastName);
                     setBankNumber(response.data.bank.cardNumber);
                     setBankExpire(response.data.bank.cardExpire);
@@ -53,9 +46,7 @@ export default function Cartao() {
                         position: toast.POSITION.TOP_RIGHT
                     });
 
-                    if(error.message == 'Request failed with status code 401'){
-                        setUser({});
-                        setToken({});
+                    if(error.message === 'Request failed with status code 401'){
                         localStorage.clear();
 
                         window.location.href = "";

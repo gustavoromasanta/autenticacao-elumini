@@ -21,15 +21,15 @@ import Cartao from "./pages/cartao";
 
 function App() {
   return (
-    <Router>
-        <Routes>
-            <Route exact path="/" element={<Home />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/endereco" element={<Endereco />} />
-            <Route path="/trabalho" element={<Trabalho />} />
-            <Route path="/cartao" element={<Cartao />} />
-        </Routes>
-    </Router>
+      <Router>
+          <Routes>
+              <Route exact path="/" element={<Home />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/endereco" element={<Endereco />} />
+              <Route path="/trabalho" element={<Trabalho />} />
+              <Route path="/cartao" element={<Cartao />} />
+          </Routes>
+      </Router>
   );
 }
 
